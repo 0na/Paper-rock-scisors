@@ -37,6 +37,14 @@ function showSadMickey() {
     document.getElementById("sadmickey").style.visibility = "visible";
 }
 
+
+function resetGame() {
+    myScore = 0;
+    compScore = 0;
+    // resulfOfGame.innerHTML = "Game is finished";
+}
+
+
 newGame.addEventListener("click", function () {
     rounds = window.prompt("How many round would you like to play ? ");
     if (isNaN(rounds)) {
@@ -65,25 +73,26 @@ var randomNum = function () {
 scisorsButton.addEventListener("click", function () {
     var randomNum = Math.floor(Math.random() * 3) + 1;
     if (randomNum == 1) { //jeśli wylosowane przez komputer 1 wtedy sa to nozyczki znak == to idealnie rowna sie
-        output.innerHTML = "DRAW. Computer choose Scisors, as you"; //REMIS- nic nie zwraca
+        output.innerHTML = "DRAW. Computer choose was Scisors, as yours"; //REMIS- nic nie zwraca
     } else if (randomNum == 2) { //jeśli wylosowane przez komputer 2 wtedy sa to kamień etc.
-        output.innerHTML = "COMPUTER WON. Computer choose Rock";
+        output.innerHTML = "COMPUTER WON. Computer choose was Rock";
         compScore++; //komp dostaje punkt
         score.innerHTML = myScore + " - " + compScore; // 0 do 1 dla kompa
-
         if (compScore == winner) {
             resulfOfGame.innerHTML = "Game is finished. Computer WON";
             hiddenMickey();
-            showSadMickey()
+            showSadMickey();
+            resetGame();
         }
     } else if (randomNum == 3) {
-        output.innerHTML = "YOU WON. Computer choose Paper. Congrats !";
+        output.innerHTML = "YOU WON. Computer choose was Paper. Congrats !";
         myScore++; //ja  dostaje punkt
         score.innerHTML = myScore + " - " + compScore; // 0 do 1 dla kompa
         if (myScore == winner) {
             resulfOfGame.innerHTML = "Game is finished. YOU WON- Congrats";
             showMickey();
             hiddenSadMickey();
+            resetGame();
         }
     }
 
@@ -92,19 +101,20 @@ scisorsButton.addEventListener("click", function () {
 rockButton.addEventListener("click", function () {
     var randomNum = Math.floor(Math.random() * 3) + 1;
     if (randomNum == 1) { //jeśli wylosowane przez komputer 1 wtedy sa to nozyczki znak == to idealnie rowna sie
-        output.innerHTML = "YOU WON. Computer choose Scisors";
+        output.innerHTML = "YOU WON. Computer choose was Scisors. Congrats !";
         myScore++; //ja  dostaje punkt
         score.innerHTML = myScore + " - " + compScore;
         if (myScore == winner) {
             showMickey();
             hiddenSadMickey();
+            resetGame();
             resulfOfGame.innerHTML = "Game is finished. YOU WON- Congrats";
 
         } // 0 do 1 dla kompa
     } else if (randomNum == 2) { //jeśli wylosowane przez komputer 2 wtedy sa to kamień etc.
-        output.innerHTML = "DRAW. Computer choose  Rock, as you";
+        output.innerHTML = "DRAW. Computer choose was Rock, as yours";
     } else if (randomNum == 3) {
-        output.innerHTML = "COMPUTER WON. Computer choose Paper";
+        output.innerHTML = "COMPUTER WON. Computer choose was Paper";
         compScore++; //komp dostaje punkt
         score.innerHTML = myScore + " - " + compScore;
 
@@ -112,6 +122,7 @@ rockButton.addEventListener("click", function () {
             resulfOfGame.innerHTML = "Game is finished. Computer WON";
             hiddenMickey();
             showSadMickey();
+            resetGame();
         }
     }
 
@@ -121,7 +132,7 @@ rockButton.addEventListener("click", function () {
 paperButton.addEventListener("click", function () {
     var randomNum = Math.floor(Math.random() * 3) + 1;
     if (randomNum == 1) { //jeśli wylosowane przez komputer 1 wtedy sa to nozyczki znak == to idealnie rowna sie
-        output.innerHTML = "COMPUTER WON. Computer choose Scisors";
+        output.innerHTML = "COMPUTER WON. Computer choose was Scisors";
         compScore++; //komp dostaje punkt
         score.innerHTML = myScore + " - " + compScore;
 
@@ -129,9 +140,10 @@ paperButton.addEventListener("click", function () {
             resulfOfGame.innerHTML = "Game is finished. Computer WON";
             hiddenMickey();
             showSadMickey();
+            resetGame();
         }
     } else if (randomNum == 2) { //jeśli wylosowane przez komputer 2 wtedy sa to kamień etc.
-        output.innerHTML = "YOU WON. Computer choose Rock. Congrats !";
+        output.innerHTML = "YOU WON. Computer choose was Rock. Congrats !";
         myScore++; //ja  dostaje punkt
         score.innerHTML = myScore + " - " + compScore;
 
@@ -139,10 +151,11 @@ paperButton.addEventListener("click", function () {
             resulfOfGame.innerHTML = "Game is finished. YOU WON- Congrats";
             showMickey();
             hiddenSadMickey();
+            resetGame();
 
         } // 0 do 1 dla kompa
     } else if (randomNum == 3) {
-        output.innerHTML = "DRAW. Computer choose Paper, as you";
+        output.innerHTML = "DRAW. Computer choose was Paper, as yours";
     }
 
 });
