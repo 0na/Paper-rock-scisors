@@ -53,7 +53,7 @@ newGame.addEventListener("click", function () {
         numberOfRounds.innerHTML = 'Please, write something';
     } else {
         winner = Math.floor(rounds / 2 + 1);
-        numberOfRounds.innerHTML = 'If you play ' + rounds + "rounds , you have to win " + winner + " numbers of rounds";
+        numberOfRounds.innerHTML = 'If you play ' + rounds + " rounds , you have to win " + winner + " numbers of rounds";
     }
 })
 
