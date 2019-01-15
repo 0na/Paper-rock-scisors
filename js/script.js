@@ -70,6 +70,9 @@ var randomNum = function () {
 */
 
 
+
+
+
 scisorsButton.addEventListener("click", function () {
     var randomNum = Math.floor(Math.random() * 3) + 1;
     if (randomNum == 1) { //jeśli wylosowane przez komputer 1 wtedy sa to nozyczki znak == to idealnie rowna sie
